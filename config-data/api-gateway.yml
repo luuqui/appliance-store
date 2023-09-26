@@ -1,0 +1,10 @@
+spring:
+  cloudgateway:
+    discovery:
+      locator:
+        enabled: true
+      lower-case-service-id: true
+  application:
+    name: api-gateway
+  server:
+    port: 443

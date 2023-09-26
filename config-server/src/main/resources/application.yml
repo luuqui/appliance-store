@@ -2,5 +2,17 @@ server:
   port: 8081
 
 spring:
+  profiles:
+    active: native
   application:
     name: config-server
+
+cloud:
+  config:
+    server:
+      git:
+        uri: https://github.com/luuqui/appliance-store
+        searchPaths: config-data
+        username: ${GIT_USER}
+        password: ${GIT_PASSWORD}
+
