@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8087
 
 spring:
   profiles:
@@ -15,4 +15,9 @@ cloud:
         searchPaths: config-data
         username: ${GIT_USER}
         password: ${GIT_PASSWORD}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-sv:8761/eureka/
 

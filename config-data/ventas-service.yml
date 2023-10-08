@@ -5,20 +5,27 @@ spring:
   application:
     name: ventas-service
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    lease-renewal-interval-in-seconds: 0
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
-spring:
   jpa:
     hibernate:
       ddl-auto: update
-    datasource:
-      url: jdbc:mysql://localhost:3307/tienda_ventas?serverTimezone=UTC
-      username: root
-      password:
-  jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  datasource:
+    url: ${url}
+    username: ${username}
+    password: ${password}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-sv:8761/eureka/
+
+eureka.instance:
+  lease-renewal-interval-in-seconds: 0

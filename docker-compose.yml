@@ -1,0 +1,50 @@
+version: '2.1'
+
+services:
+  eureka-sv:
+    build: eureka-sv
+    mem_limit: 512m
+    ports:
+      - "8761:8761"
+    networks:
+      - commerce-network
+  api-gateway:
+    build: api-gateway
+    mem_limit: 512m
+    ports:
+      - "443:443"
+    networks:
+      - commerce-network
+  config-server:
+    build: config-server
+    mem_limit: 512m
+    ports:
+      - "8087:8087"
+    networks:
+      - commerce-network
+  productos:
+    build: productos
+    mem_limit: 512m
+    ports:
+      - "8081:8081"
+    networks:
+      - commerce-network
+  carrito:
+    build: carrito
+    mem_limit: 512m
+    ports:
+      - "8082:8082"
+    networks:
+      - commerce-network
+  ventas:
+    build: ventas
+    mem_limit: 512m
+    ports:
+      - "8084:8084"
+    networks:
+      - commerce-network
+
+networks:
+  commerce-network:
+
+

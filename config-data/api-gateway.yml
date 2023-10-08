@@ -1,10 +1,18 @@
 spring:
-  cloudgateway:
-    discovery:
-      locator:
-        enabled: true
-      lower-case-service-id: true
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
   application:
     name: api-gateway
-  server:
-    port: 443
+
+server:
+  port: 443
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-sv:8761/eureka/
