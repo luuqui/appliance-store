@@ -9,10 +9,7 @@ agregar y quitar artículos de la lista de electrodomésticos de su carrito de c
 
 Ventas: Se encarga de registrar cada venta mediante un número de identificación y una fecha. Cada venta está asociada a un carrito de compras. Al solicitar una venta mostrará los productos, total, fecha, etc.
 
-USO DE LA APP: 
-Para poder probar el proyecto se deberá configurar las variables de entorno local (user, password, url) para entrar en una base de datos local. Estas configuraciones están en el config data.
-Además, dejé un archivo Postman para poder implementar de manera más ágil el proyecto completo.
-
 DOCKER:
 Para generar las imagenes solo hay que hacer uso de la consola, ya está todo configurado.
 Los comandos son 'docker-compose build' y posteriormente a esto para generar los contenedores 'docker-compose up'.
+Además, dejé un archivo Postman para poder implementar de manera más ágil el proyecto completo.
