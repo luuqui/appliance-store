@@ -29,6 +29,8 @@ services:
       - "8081:8081"
     networks:
       - commerce-network
+    depends_on:
+      - mysql-productos
   carrito:
     build: carrito
     mem_limit: 512m
@@ -36,6 +38,8 @@ services:
       - "8082:8082"
     networks:
       - commerce-network
+    depends_on:
+      - mysql-carrito
   ventas:
     build: ventas
     mem_limit: 512m
@@ -43,8 +47,46 @@ services:
       - "8084:8084"
     networks:
       - commerce-network
+    depends_on:
+      - mysql-ventas
+
+  mysql-productos:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: productos
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-productos-data:/var/lib/mysql
+
+  mysql-carrito:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: carrito
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql-carrito-data:/var/lib/mysql
+
+  mysql-ventas:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ventas
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql-ventas-data:/var/lib/mysql
 
 networks:
   commerce-network:
+
+
+volumes:
+  mysql-productos-data:
+  mysql-carrito-data:
+  mysql-ventas-data:
 
 

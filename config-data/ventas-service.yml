@@ -12,16 +12,6 @@ spring:
           enabled: true
           lower-case-service-id: true
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-
-  datasource:
-    url: ${url}
-    username: ${username}
-    password: ${password}
-
 eureka:
   client:
     service-url:
